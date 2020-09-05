@@ -23,9 +23,9 @@
 
 ## Contact me:
 
->>> Discord: MajorGamerJay#0965
->>> Steam: [MajorGamerJay](https://steamcommunity.com/id/majorgamerjay/)
->>> Email: [majorgamerjay@protonmail.com](mailto:majorgamerjay@protonmail.com)
+- Discord: MajorGamerJay#0965
+- Steam: [MajorGamerJay](https://steamcommunity.com/id/majorgamerjay/)
+- Email: [majorgamerjay@protonmail.com](mailto:majorgamerjay@protonmail.com)
 
 <!--
 **MajorGamerJay/MajorGamerJay** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
