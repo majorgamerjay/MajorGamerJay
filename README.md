@@ -1,9 +1,7 @@
 ### Hi there 👋
 
-## Stuff that I'm doing now!
+I'm MajorGamerJay, 15 years old and learning programming and FOSS-related topics. I like my stuff simple and open source and I hope to be a software engineer.
 
-- 🔭 I’m currently working on a discord bot that will stream music from a local or a remote MPD server!
-     tho I am new to discord.py, I'll try my best to make a minimal bot for everyone to use! :D
 - 🌱 I’m currently learning C, Python, JS, Rust, Nim.
 - 💬 Ask me about anything you want! I'll gladly try my best to answer it.
 - ⚡ Fun fact: Btw, I use Gentoo :)
@@ -13,13 +11,6 @@
 - 🌀 My Website (Currently on maintanence, not available!)
 - 🥨 Cheatsheets/Articles (Currently on maintanence, not available!)
 - 🐙 Blogs/Other stuff (Currently on maintanence, not available!)
-
-## Interests:
-
-- 🎫 Anime
-- 🌭 Fast food (though I eat these rarely)
-- 🔫 FPS Games
-- ⛓ Cyber security related stuff (I'm completely new to this 😅)
 
 ## Contact me:
 
