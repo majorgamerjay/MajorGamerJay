@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-I'm MajorGamerJay, 15 years old and learning programming and FOSS-related topics. I like my stuff simple and open source and I hope to be a software engineer.
+I'm MajorGamerJay, 15 years old and learning programming and FOSS-related topics. I like my stuff simple and open source and I hope to become a software engineer in future.
 
 - 🌱 I’m currently learning C, Python, JS, Rust, Nim.
 - 💬 Ask me about anything you want! I'll gladly try my best to answer it.
