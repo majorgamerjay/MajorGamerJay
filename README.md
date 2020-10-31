@@ -1,15 +1,9 @@
 ### Hi there 👋
 
-I'm MajorGamerJay, 15 years old and learning programming and FOSS-related topics. I like my stuff simple and open source and I hope to become a software engineer in future.
+I'm MajorGamerJay, some kid who's learning programming and FOSS-related topics. I like my stuff simple and open source and I hope to become a software engineer in future.
 
-- 🌱 I’m currently learning C, Python, JS, Rust, Nim.
-- 💬 Ask me about anything you want! I'll gladly try my best to answer it.
-- ⚡ Fun fact: Btw, I use Gentoo :)
+I use Gentoo :)
 
-## Link/Stuff you might wanna check out:
-
-- 🌀 My Website (Currently on maintanence, not available!)
-- 🥨 Cheatsheets/Articles (Currently on maintanence, not available!)
 - 🐙 Blogs/Other stuff (Currently on maintanence, not available!)
 
 ## Contact me:
@@ -18,6 +12,22 @@ I'm MajorGamerJay, 15 years old and learning programming and FOSS-related topics
 - Steam: [MajorGamerJay](https://steamcommunity.com/id/majorgamerjay/)
 - Email: [majorgamerjay@protonmail.com](mailto:majorgamerjay@protonmail.com)
 
+Here's the best/freest license ever:
+```
+        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+                    Version 2, December 2004 
+
+ Copyright (C) 2020 Your Name <Your Email>
+
+ Everyone is permitted to copy and distribute verbatim or modified 
+ copies of this license document, and changing it is allowed as long 
+ as the name is changed. 
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
+```
 <!--
 **MajorGamerJay/MajorGamerJay** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
