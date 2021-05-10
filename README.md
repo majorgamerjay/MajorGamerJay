@@ -6,5 +6,3 @@ If you want to see my configurations for various things, see the respository of 
 - GNU/Linux Distribution: Gentoo
 - Uses: C, Python, Javascript (Node.js server side/backend)
 - Website: https://majorgamerjay.github.io
-
-Offline from: 23 March 2021 - 1 May 2021
