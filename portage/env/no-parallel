@@ -1,4 +1,0 @@
-# This is very useful for compiling packages that require lots of RAM
-# and is very big in compilation size.
-
-MAKEOPTS="-j1"

@@ -1,0 +1,6 @@
+app-emulation/qemu ssh numa sdl2 spice virgl gtk gtk2 virtfs static-user io-uring zstd bzip2 pulseaudio alsa gnutls lzo opengl udev usb usbredir vhost-net vhost-user-fs vnc -vte
+sys-apps/attr static-libs
+dev-libs/glib static-libs
+dev-libs/libpcre static-libs
+sys-libs/zlib static-libs
+net-dns/dnsmasq script

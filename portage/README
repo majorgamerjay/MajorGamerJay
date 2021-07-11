@@ -1,5 +1,7 @@
 MajorGamerJay's Portage configuration for GNU/Linux
 
+Use for reference only or your system will have a high chance to break.
+
 I use Gentoo Linux's package manager Portage to get softwares within the
 distribution. It is a highly configurable source-based package manager that
 compiles the programs with according to feature flags (e.g. USE flags).
@@ -8,5 +10,3 @@ A few things before using my configuration for any purposes. Always
 remember that consistency > convenience; using it directly will break your
 system. Start with no USE flags, and then slowly build up to all the
 features to make your new Gentoo system.
-
-I will make a tutorial about this soon.
