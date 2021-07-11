@@ -1,6 +1,7 @@
 Neovim configuration: init.vim
 
-- Copied from theprimeagen's neovim configuration.
-- Added a few keybindings on my own.
-- Uses vim-plug for plugins.
-- Neovim LSP for language servers.
+This is heavily based on _theprimeagen_'s neovim config along with some extra plugins
+and personal configurations I added to make my vimming easier. Uses vim-plug for
+plugin management.
+
+Enjoy! :)

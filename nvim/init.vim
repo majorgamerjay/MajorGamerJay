@@ -1,7 +1,10 @@
 set exrc
+set spell spelllang=en_us
+set expandtab
 set nohlsearch
 set hidden
 set noerrorbells
+set shiftwidth=4
 set tabstop=4 softtabstop=4
 set nowrap
 set noswapfile
@@ -18,6 +21,12 @@ set noshowmode
 set colorcolumn=80
 
 call plug#begin('~/.vim/plugged')
+" VIM SNIPPAH
+Plug 'hrsh7th/vim-vsnip'
+
+" Lisp plugin
+Plug 'https://github.com/vlime/vlime'
+Plug 'https://github.com/kovisoft/paredit'
 
 " Neovim Tree shitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -28,10 +37,11 @@ Plug 'flazz/vim-colorschemes'
 
 " Neovim lsp Plugins
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
 Plug 'tjdevries/nlua.nvim'
 Plug 'tjdevries/lsp_extensions.nvim'
 
+" Autocompletion with compe
+Plug 'hrsh7th/nvim-compe'
 
 " Debugger Plugins
 Plug 'puremourning/vimspector'
@@ -59,13 +69,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
-Plug 'mhinz/vim-rfc'
-
 " Fire Nvim
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(69) } }
-
-" Cheat Sheet
-Plug 'dbeniamine/cheat.sh-vim'
 
 " prettier
 Plug 'sbdchd/neoformat'
@@ -74,7 +79,6 @@ call plug#end()
 
 " let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 let g:vim_be_good_log_file = 1
 let g:vim_apm_log = 1
@@ -122,15 +126,26 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>
 nnoremap <leader>gD :lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>
+nnoremap <leader>gh :lua vim.lsp.buf.hover()<CR>
 
 " vim TODO
-nmap <Leader>tu <Plug>BujoChecknormal
-nmap <Leader>th <Plug>BujoAddnormal
+nmap <C-Q> <Plug>BujoChecknormal
+nmap <C-E> <Plug>BujoAddnormal
+imap <C-Q> <Plug>BujoCheckinsert
+imap <C-E> <Plug>BujoAddinsert
 let g:bujo#todo_file_path = $HOME . "/.cache/bujo"
 
 inoremap <C-c> <esc>
+
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 fun! EmptyRegisters()
     let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
@@ -163,19 +178,105 @@ augroup THE_PRIMEAGEN
     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
 augroup END
 
-colorscheme solarized8_dark
-hi Normal guibg=NONE ctermbg=NONE
+" colorscheme SweetCandy
+" hi Normal guibg=NONE ctermbg=NONE
 
-lua require'lspconfig'.clangd.setup{ on_attach=require'completion'.on_attach }
-lua require'lspconfig'.tsserver.setup{ on_attach=require'completion'.on_attach }
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Set completeopt to have a better completion experience
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noselect
 
 " Avoid showing message extra message when using completion
 " set shortmess+=c
 
+lua << EOF
+-- Compe setup
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    treesitter = true;
+  };
+}
+
+-- Snippet capabilities
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  }
+}
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
+end
+
+-- Use (s-)tab to:
+--- move to prev/next item in completion menuone
+--- jump to prev/next snippet's placeholder
+_G.tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-n>"
+  elseif check_back_space() then
+    return t "<Tab>"
+  else
+    return vim.fn['compe#complete']()
+  end
+end
+_G.s_tab_complete = function()
+  if vim.fn.pumvisible() == 1 then
+    return t "<C-p>"
+  else
+    return t "<S-Tab>"
+  end
+end
+
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+
+require'lspconfig'.clangd.setup {
+  capabilities = capabilities
+}
+
+require'lspconfig'.tsserver.setup {
+  capabilities = capabilities
+}
+
+require'lspconfig'.pyls.setup {
+  capabilities = capabilities
+}
+
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true
+  }
+}
+EOF
