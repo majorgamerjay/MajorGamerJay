@@ -10,4 +10,4 @@ If you want to see my configurations for various things, see the respository of 
 - Love to use C, NodeJS, Python. Learning functional programming languages for better understanding (**lisp**)
 - Website: https://majorgamerjay.github.io
 
-If you want to contact me, send me an email. Here's my PGP [key](https://majorgamerjay.github.io/pgp.html).
+If you want to contact me, send me an email. Here's my PGP [key](https://majorgamerjay.github.io/majorgamerjay.asc).
