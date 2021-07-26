@@ -5,7 +5,7 @@ New to programming and Linux overall (1 year?) and love to break systems and pro
 
 If you want to see my configurations for various things, see the respository of this README.md file.
 
-- I like to write stuff and I have a passion for games, mainly RPG (currently playing *Tales of Berseria*) and FPS (CSGO, R6).
+- I like to write stuff and I have a passion for games, mainly RPG (currently playing *Tales of Berseria*) and FPS (CSGO, R6). I hope to get into game development soon.
 - I use Gentoo mainly due to it's extensible features and ease of use for non-standard systems.
 - Love to use C, NodeJS, Python. Learning functional programming languages for better understanding (**lisp**)
 - Website: https://majorgamerjay.github.io
