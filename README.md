@@ -1,7 +1,7 @@
 # Hi there 👋
 
 Welcome to my personal GitHub profile! I'm a 16 year old guy who loves tinkering with programs.
-New to programming and Linux overall (1 year?) and love to break systems and programs. ^\_^
+New to programming and Linux overall (1 year?) and love to break systems and programs.
 
 If you want to see my configurations for various things, see the respository of this README.md file.
 
