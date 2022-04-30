@@ -10,3 +10,6 @@ A few things before using my configuration for any purposes. Always
 remember that consistency > convenience; using it directly will break your
 system. Start with no USE flags, and then slowly build up to all the
 features to make your new Gentoo system.
+
+I reinstalled gentoo on 4th April, 2022 and re-updated the whole portage dir
+in this repository on 4/30/22.
