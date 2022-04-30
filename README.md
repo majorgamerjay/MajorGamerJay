@@ -4,9 +4,15 @@ Aspiring (degreeless) software engineer whose hobbies are to spend time doing wh
 
 ## Workflow
 
-OS: GNU/Linux, Distribution: [Gentoo](https://www.gentoo.org/)
+### Tools
+* OS: GNU/Linux
+* Distribution: [Gentoo](https://www.gentoo.org/)
+* DE: [KDE Plasma](https://kde.org/)
+* Editor: [Neovim](https://neovim.io/)
 
-Programming Languages I work with:
+### Programming Languages
+*Note: I'm no expert in any of these languages. I just learn the basic and build together code referencing the documentations*
+
 * Python
 * JavaScript
 * C
